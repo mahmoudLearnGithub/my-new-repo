@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-const apikey = "feff206daa60b539abe8fae8f2ab7f29";
+const apikey = process.env.NEXT_PUBLIC_API_KEY;
 
 const Weather = () => {
     const router = useRouter();

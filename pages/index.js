@@ -14,8 +14,7 @@ const Weather = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords;
-                const url = `
-http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
 
                 fetchWeatherData(url);
             });
@@ -35,7 +34,7 @@ http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&
 
     const searchByCity = async () => {
         try {
-            const urlsearch = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`;
+            const urlsearch = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`;
             const response = await axios.get(urlsearch);
             const data = response.data;
             console.log(data);
@@ -47,7 +46,7 @@ http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&
     };
 
     const weatherReport = async (data) => {
-        const urlcast = `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&appid=${apikey}`;
+        const urlcast = `https://api.openweathermap.org/data/2.5/forecast?q=${data.name}&appid=${apikey}`;
         try {
             const response = await axios.get(urlcast);
             const forecast = response.data;
